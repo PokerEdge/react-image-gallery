@@ -1,15 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 
-import Nav from './Nav';
-import SearchForm from './SearchForm';
-import NotFound from './NotFound';
+const Coffee = props => {
 
-const Container = props => {
-
-  let serverID = '4750';
-  let photoID = '40119717621';
-  let secret = '3033ffcd2a';
+  let serverID = '4764';
+  let photoID = '26300130668';
+  let secret = 'b3b1ee507f';
 
   /*
   let farm = data.photos.photo.farm;
@@ -39,4 +34,4 @@ const Container = props => {
   );
 }
 
-export default Container;
+export default Coffee;

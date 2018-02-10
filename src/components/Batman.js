@@ -1,11 +1,6 @@
 import React from 'react';
-import axios from 'axios';
 
-import Nav from './Nav';
-import SearchForm from './SearchForm';
-import NotFound from './NotFound';
-
-const Container = props => {
+const Batman = props => {
 
   let serverID = '4750';
   let photoID = '40119717621';
@@ -39,4 +34,4 @@ const Container = props => {
   );
 }
 
-export default Container;
+export default Batman;
