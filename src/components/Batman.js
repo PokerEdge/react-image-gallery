@@ -29,6 +29,7 @@ const Batman = props => {
     <div className="photo-container">
       <h2>Results</h2>
       <ul>
+        {/* url and altText will be replaced by mapped over search term props from axios call */}
         <li><img src={url[0]} alt={altText[0]} /></li>
         <li><img src={url[1]} alt={altText[1]} /></li>
         <li><img src={url[2]} alt={altText[2]} /></li>

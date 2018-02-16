@@ -8,6 +8,7 @@ const Nav = props => {
         <li><NavLink to='/batman'>Batman</NavLink></li>
         <li><NavLink to='/coffee'>Coffee</NavLink></li>
         <li><NavLink to='/gym'>Gym</NavLink></li>
+        <li><NavLink to='/search'>Search</NavLink></li>
       </ul>
     </nav>
   );
