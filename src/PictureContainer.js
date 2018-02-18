@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PictureList from './PictureList';
 import axios from 'axios';
+import config from './config';
 
 export default class PictureContainer extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class PictureContainer extends Component {
   // }
 
   componentDidMount() {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0f54a50652c3fa50b048354439e10ac&tags=batman&media=photos&per_page=12&format=json&nojsoncallback=1`)
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config.apiKey}&tags=batman&media=photos&per_page=12&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           images: response.data.photos.photo,
