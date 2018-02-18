@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter,
   Route,
   Switch
 } from 'react-router-dom';
-
-// import axios from 'axios';
-
 import './css/index.css';
-// import apiKey from './config';
 
 /* App Components */
 import Search from './Search';
 import Nav from './Nav';
 import NotFound from './NotFound';
-import Container from './Container';
+import PictureContainer from './PictureContainer';
 
 /* Image holding components (to genearlize in the Container component) */
 import Batman from './components/Batman';
@@ -27,7 +23,7 @@ const App = props => {
       <div className="container">
         <Nav />
         <Switch>
-          <Route exact path="/" component={Container} />
+          <Route exact path="/" component={PictureContainer} />
           <Route path="/search" component={Search} />
           <Route path="/batman" component={Batman} />
           <Route path="/coffee" component={Coffee} />
@@ -38,3 +34,5 @@ const App = props => {
     </BrowserRouter>
   );
 }
+
+export default App;

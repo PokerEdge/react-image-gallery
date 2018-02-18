@@ -6,13 +6,22 @@ export default class Search extends Component {
     searchText: ''
   }
 
+  componentWillReceiveProps(nextProps) {
+    // if(this.state.searchText.length > 0 && props !== nextProps) {
+    //   performSearch(nextProps);
+    // }
+  }
+
   onSearchChange = e => {
     this.setState({searchText: e.target.value})
   }
 
+  //match.path = this.searchTerm.value
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSearch(this.searchTerm.value);
+    // this.props.onSearch(this.searchTerm.value);
+    let path = `seach/${this.state.searchText}`;
+    this.props.history.push(path);
     e.currentTarget.reset();
   }
 

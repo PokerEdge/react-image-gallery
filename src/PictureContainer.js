@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import ImageList from './ImageList';
-
+import PictureList from './PictureList';
 import axios from 'axios';
-import apiKey from './config';
 
-export default class Container extends Component {
+export default class PictureContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,25 +26,22 @@ export default class Container extends Component {
     };
   }
 
+  // componentWillMount() {
+  //   this.performSearch();
+  //   console.log('componentWIllMount called')
+  // }
+
   componentDidMount() {
-    // this.performSearch();
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=e0f54a50652c3fa50b048354439e10ac&tags=batman&media=photos&per_page=12&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           images: response.data.photos.photo,
           isLoading: false
         })
-        console.log('state was updated by componentDidMount')
       })
-      .catch(error => 'Unable to fetch data with axios', error);
-    { /* Use index argument in mapping to get array elements by index */}
-    console.log(
-      this.state.images[0].farm,
-      this.state.images[0].server,
-      this.state.images[0].id,
-      this.state.images[0].secret,
-      this.state.images[0].title
-    );
+      .catch(error =>
+        'Unable to fetch data with axios'
+      );
   }
 
   // performSearch = (searchTerm = 'batman') => {
@@ -63,13 +58,16 @@ export default class Container extends Component {
   //     });
   // }
 
-  /* Map over rate limited API fetch for particular string entered */
-  return (
-    <div className="photo-container">
-      <h2>Results</h2>
-      <ul>
-        <li><img src={'https://farm5.staticflickr.com/4753/40116133061_dd388d8c67.jpg'} alt={} /></li>
-      </ul>
-    </div>
-  );
+  render(){
+
+    return (
+      <div className="photo-container">
+          {
+            (this.state.isLoading)
+            ? <p>Loading...</p>
+            : <PictureList data={this.state.images} />
+          }
+      </div>
+    );
+  }
 }
