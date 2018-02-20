@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class SearchForm extends Component {
+const NotFound = () => (
+  <ul>
+    <li className="not-found">
+      <h3>No Results Found</h3>
+      <p>Your search did not return any results. Please try again.</p>
+    </li>
+  </ul>
+);
 
-  render() {
-    return (
-      <ul>
-        <li className="not-found">
-          <h3>No Results Found</h3>
-          <p>Your search did not return any results. Please try again.</p>
-        </li>
-      </ul>
-    );
-  }
-}
+export default NotFound;

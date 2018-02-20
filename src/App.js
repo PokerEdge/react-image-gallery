@@ -10,9 +10,9 @@ import './css/index.css';
 import Search from './Search';
 import Nav from './Nav';
 import NotFound from './NotFound';
-import PictureContainer from './PictureContainer';
 
 /* Image holding components (to genearlize in the Container component) */
+import PictureContainer from './PictureContainer';
 import Batman from './components/Batman';
 import Coffee from './components/Coffee';
 import Gym from './components/Gym';
@@ -24,8 +24,10 @@ const App = props => {
         <Nav />
         <Switch>
           <Route exact path="/" component={PictureContainer} />
+          { /* Use redirect to go to a particular URL after componentDidMount */ }
           <Route path="/search" component={Search} />
-          <Route path="/batman" component={Batman} />
+          <Route path="/search/:searchTerm" component={Search} />
+          <Route path="/batman" render={() => {<PictureContainer data={Batman} />}} />
           <Route path="/coffee" component={Coffee} />
           <Route path="/gym" component={Gym} />
           <Route component={NotFound} />

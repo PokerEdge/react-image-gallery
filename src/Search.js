@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PictureContainer from './PictureContainer';
+// import match from 'react-router-dom';
 
 export default class Search extends Component {
 
@@ -13,14 +15,14 @@ export default class Search extends Component {
   }
 
   onSearchChange = e => {
-    this.setState({searchText: e.target.value})
+    this.setState({ searchText: e.target.value })
   }
 
   //match.path = this.searchTerm.value
   handleSubmit = e => {
     e.preventDefault();
     // this.props.onSearch(this.searchTerm.value);
-    let path = `seach/${this.state.searchText}`;
+    let path = `/search/${this.state.searchText}`;
     this.props.history.push(path);
     e.currentTarget.reset();
   }

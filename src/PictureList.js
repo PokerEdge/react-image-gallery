@@ -1,5 +1,6 @@
 import React from 'react';
 import Picture from './Picture';
+import NotFound from './NotFound';
 // import PropTypes from 'prop-types';
 // import axios from 'axios';
 
@@ -9,17 +10,20 @@ import Picture from './Picture';
 
 const PictureList = props => {
 
-  const photos = props.data.map((photo) =>
-    <Picture key={photo.id}
-             url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
-             title={photo.title} />
-  );
-  console.log(props.data);
+  const data = props.data;
+  let photos;
+
+  if(data.length > 0){
+    photos = data.map((photo) =>
+      <Picture key={photo.id}
+               url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
+               title={photo.title} />
+    );
+  } else photos = <NotFound />
+
+  console.log(data);
 
   return (
-    // <li key={props.data.id}>
-    //   <img src={url} alt={props.data.title} />
-    // </li>
     <div>
       <h2>Results</h2>
       <ul>
