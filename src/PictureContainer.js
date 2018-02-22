@@ -8,7 +8,7 @@ export default class PictureContainer extends Component {
     super(props)
     this.state = {
       images: [],
-      // searchTerm: this.props.searchTerm,
+      searchTerm: '',
       isLoading: true
     }
   }
@@ -18,11 +18,11 @@ export default class PictureContainer extends Component {
     console.log('componentWillReceiveProps', nextProps);
   }
 
-  componentDidMount(props) {
-    this.performSearch();
+  componentDidMount(props, match) {
+    this.performSearch(this.props.searchTerm || 'batman');
   }
 
-  performSearch = (searchTerm = 'batman') => {
+  performSearch = (searchTerm) => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config.apiKey}&tags=${searchTerm}&media=photos&per_page=12&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
@@ -33,6 +33,7 @@ export default class PictureContainer extends Component {
       .catch(error => {
         console.log('Error fetching and parsing data', error);
       });
+      console.log('searchTerm after performSearch method:', this.state.searchTerm)
   }
 
   render(){

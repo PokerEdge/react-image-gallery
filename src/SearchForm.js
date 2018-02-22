@@ -22,9 +22,10 @@ export default class SearchForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     // this.props.onSearch(this.searchTerm.value);
-    let path = `/search/${this.state.searchText}`;
+    let path = `search/${this.searchText.value}`;
     this.props.history.push(path);
     e.currentTarget.reset();
+    // this.setState({ searchText: ''});
   }
 
   render() {

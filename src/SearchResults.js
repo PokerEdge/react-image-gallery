@@ -1,10 +1,16 @@
 import React from 'react';
 import PictureContainer from './PictureContainer';
+import SearchForm from './SearchForm';
 
-const SearchResults = ({match}) => {
+const SearchResults = ({ match }) => {
+
+  let searchTerm = match.params.searchTerm;
+
   return (
-    <PictureContainer title="" searchTerm={match.params.searchTerm} />
-    /* <PictureContainer title="" searchTerm={match.params.searchTerm} /> */ 
+    <div>
+      <SearchForm />
+      <PictureContainer title="" searchTerm={searchTerm} />
+    </div>
   );
 }
 
