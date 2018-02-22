@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PictureContainer from './PictureContainer';
 import SearchResults from './SearchResults';
-// import match from 'react-router-dom';
 
 export default class SearchForm extends Component {
   state = {
@@ -9,23 +8,18 @@ export default class SearchForm extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    // if(this.state.searchText.length > 0 && props !== nextProps) {
-    //   performSearch(nextProps);
-    // }
+
   }
 
   onSearchChange = e => {
     this.setState({ searchText: e.target.value })
   }
 
-  //match.path = this.searchTerm.value
   handleSubmit = e => {
     e.preventDefault();
-    // this.props.onSearch(this.searchTerm.value);
     let path = `search/${this.searchText.value}`;
     this.props.history.push(path);
     e.currentTarget.reset();
-    // this.setState({ searchText: ''});
   }
 
   render() {
