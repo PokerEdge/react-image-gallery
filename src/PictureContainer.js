@@ -5,16 +5,17 @@ import config from './config';
 
 export default class PictureContainer extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       images: [],
+      // searchTerm: this.props.searchTerm,
       isLoading: true
-    };
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    // this.performSearch();
-    // console.log('componentWillReceiveProps', nextProps.this.images);
+    // this.performSearch(nextProps.location);
+    console.log('componentWillReceiveProps', nextProps);
   }
 
   componentDidMount(props) {
@@ -48,7 +49,7 @@ export default class PictureContainer extends Component {
                   </path>
                 </svg>
               </p>
-            : <PictureList data={this.state.images} />
+            : <PictureList data={this.state.images} searchTerm={this.state.searchTerm} />
           }
       </div>
     );

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PictureContainer from './PictureContainer';
+import SearchResults from './SearchResults';
 // import match from 'react-router-dom';
 
-export default class Search extends Component {
-
+export default class SearchForm extends Component {
   state = {
     searchText: ''
-  }
+  };
 
   componentWillReceiveProps(nextProps) {
     // if(this.state.searchText.length > 0 && props !== nextProps) {
@@ -34,7 +34,7 @@ export default class Search extends Component {
           type="search"
           name="search"
           placeholder="Search"
-          ref= {(input) => this.searchTerm = input}
+          ref= {(input) => this.searchText = input}
           required
           onChange={this.onSearchChange} />
         <button type="submit" className="search-button">

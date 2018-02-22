@@ -7,7 +7,8 @@ import {
 import './css/index.css';
 
 /* App Components */
-import Search from './Search';
+import SearchForm from './SearchForm';
+import SearchResults from './SearchResults';
 import Nav from './Nav';
 import NotFound from './NotFound';
 
@@ -25,9 +26,10 @@ const App = props => {
         <Switch>
           <Route exact path="/" component={PictureContainer} />
           { /* Use redirect to go to a particular URL after componentDidMount */ }
-          <Route path="/search" component={Search} />
-          <Route path="/search/:searchTerm" component={Search} />
-          <Route path="/batman" render={() => {<PictureContainer data={Batman} />}} />
+          <Route exact path="/search" component={SearchForm} />
+          { /* match.params.searchTerm is the searchTerm in the rendered route */ }
+          <Route path="/search/:searchTerm" component={SearchResults} />
+          <Route path="/batman" component={Batman} />
           <Route path="/coffee" component={Coffee} />
           <Route path="/gym" component={Gym} />
           <Route component={NotFound} />
