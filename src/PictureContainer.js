@@ -15,7 +15,7 @@ export default class PictureContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     // this.performSearch(nextProps.location);
-    console.log('componentWillReceiveProps', nextProps);
+    console.log('componentWillReceiveProps', nextProps, this.state.searchTerm);
   }
 
   componentDidMount(props, match) {

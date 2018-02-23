@@ -9,7 +9,7 @@ const SearchResults = ({ match }) => {
 
   return (
     <div className="photo-container">
-      <SearchForm />
+      { /* <SearchForm /> */ }
       <PictureContainer title="" searchTerm={searchTerm} />
     </div>
   );
