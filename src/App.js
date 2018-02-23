@@ -23,11 +23,10 @@ const App = props => {
     <BrowserRouter>
       <div className="container">
         <Nav />
+        <Route exact path="/search" component={SearchForm} />
         <Switch>
           <Route exact path="/" component={PictureContainer} />
-          { /* Use redirect to go to a particular URL after componentDidMount */ }
-          <Route exact path="/search" component={SearchForm} />
-          { /* match.params.searchTerm is the searchTerm in the rendered route */ }
+          
           <Route path="/search/:searchTerm" component={SearchResults} />
           <Route path="/batman" component={Batman} />
           <Route path="/coffee" component={Coffee} />

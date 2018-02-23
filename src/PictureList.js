@@ -24,7 +24,7 @@ const PictureList = props => {
   console.log(data);
 
   return (
-    <div>
+    <div className="photo-container">
       <h2>Results</h2>
       <ul>
         { photos }
