@@ -22,8 +22,8 @@ const App = props => {
   return (
     <BrowserRouter>
       <div className="container">
-        <Nav />
         <Route path="/search" component={SearchForm} />
+        <Nav />
         { /* <Route path="/search" component={SearchForm} /> */ }
         <Switch>
           { /* <Route exact path="/" component={PictureContainer} /> */ }

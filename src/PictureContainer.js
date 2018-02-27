@@ -13,25 +13,27 @@ export default class PictureContainer extends Component {
     }
   }
 
-  componentWillReceiveProps(props, match) {
+  componentWillReceiveProps(nextProps) {
     // this.performSearch(nextProps.location);
-    console.log('componentWillReceiveProps, (next)Props:', props);
-    console.log('searchTerm value:', this.props.searchTerm);
+    console.log('componentWillReceiveProps, nextProps:', nextProps);
     // (this.props.searchTerm)
     //   ? this.performSearch(this.props.searchTerm)
     //   : this.performSearch(props.match.props.searchTerm)
-    this.performSearch(this.props.searchTerm);
+    // this.performSearch(this.props.location.pathname.split('/')[2]);
+    this.performSearch(this.nextProps.match.params.searchTerm);
   }
 
-  componentDidMount(props, match) {
-    this.performSearch(this.props.searchTerm);
+  componentDidMount() {
+    this.performSearch(this.props.match.params.searchTerm);
+    // this.setState({ searchTerm : this.props.match.params.searchTerm});
   }
 
   performSearch = (searchTerm = 'batman') => {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config.apiKey}&tags=${searchTerm}&media=photos&per_page=12&format=json&nojsoncallback=1`)
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${searchTerm}&media=photos&per_page=12&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           images: response.data.photos.photo,
+          searchTerm: '',
           isLoading: false
         })
       })
@@ -39,9 +41,13 @@ export default class PictureContainer extends Component {
         console.log('Error fetching and parsing data', error);
       });
       console.log('searchTerm after performSearch method:', this.props.searchTerm)
+      // console.log('location based term', this.props.location.pathname.split('/')[2])
   }
 
   render(){
+
+    let searchTerm = (this.props.match.params.searchTerm);
+    let formattedSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1).toLowerCase();
 
     return (
       <div className="photo-container">
@@ -55,7 +61,7 @@ export default class PictureContainer extends Component {
                   </path>
                 </svg>
               </p>
-            : <PictureList data={this.state.images} searchTerm={this.state.searchTerm} />
+            : <PictureList data={this.state.images} searchTerm={formattedSearchTerm} />
           }
       </div>
     );

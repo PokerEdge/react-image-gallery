@@ -36,8 +36,6 @@ export default class SearchForm extends Component {
           </svg>
         </button>
       </form>
-
-      // <PictureList data={this.state.images} searchTerm={this.state.searchTerm} />
     );
   }
 }
