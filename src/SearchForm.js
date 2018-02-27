@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
-import PictureContainer from './PictureContainer';
-import SearchResults from './SearchResults';
+// import PictureContainer from './PictureContainer';
+// import PictureList from './PictureList';
 
 export default class SearchForm extends Component {
   state = {
     searchText: ''
-  };
-
-  componentWillReceiveProps(nextProps) {
-
   }
 
   onSearchChange = e => {
@@ -17,12 +13,13 @@ export default class SearchForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    let path = `search/${this.searchText.value}`;
+    let path = `/search/${this.searchText.value}`;
     this.props.history.push(path);
     e.currentTarget.reset();
   }
 
   render() {
+
     return (
       <form className="search-form" onSubmit={this.handleSubmit}>
         <input
@@ -39,6 +36,8 @@ export default class SearchForm extends Component {
           </svg>
         </button>
       </form>
+
+      // <PictureList data={this.state.images} searchTerm={this.state.searchTerm} />
     );
   }
 }

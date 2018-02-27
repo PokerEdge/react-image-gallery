@@ -1,7 +1,7 @@
 import React from 'react';
 import PictureContainer from './PictureContainer';
-import SearchForm from './SearchForm';
-import NotFound from './NotFound';
+// import SearchForm from './SearchForm';
+// import NotFound from './NotFound';
 
 const SearchResults = ({ match }) => {
 
@@ -11,6 +11,7 @@ const SearchResults = ({ match }) => {
     <div className="photo-container">
       { /* <SearchForm /> */ }
       <PictureContainer title="" searchTerm={searchTerm} />
+      // <NotFound />
     </div>
   );
 }

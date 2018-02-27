@@ -2,13 +2,13 @@ import React from 'react';
 import {
   BrowserRouter,
   Route,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom';
 import './css/index.css';
 
 /* App Components */
 import SearchForm from './SearchForm';
-import SearchResults from './SearchResults';
 import Nav from './Nav';
 import NotFound from './NotFound';
 
@@ -24,9 +24,12 @@ const App = props => {
       <div className="container">
         <Nav />
         <Route path="/search" component={SearchForm} />
+        { /* <Route path="/search" component={SearchForm} /> */ }
         <Switch>
-          <Route exact path="/" component={PictureContainer} />
-          <Route path="/search/:searchTerm" component={SearchResults} />
+          { /* <Route exact path="/" component={PictureContainer} /> */ }
+          <Route exact path='/' render={ ()=> <Redirect to={"/search"} /> } />
+          <Route path="/search/:searchTerm" component={PictureContainer} />
+          { /* <Route path="/search/:searchTerm" component={SearchResults} /> */ }
           <Route path="/batman" component={Batman} />
           <Route path="/coffee" component={Coffee} />
           <Route path="/gym" component={Gym} />

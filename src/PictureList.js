@@ -1,12 +1,6 @@
 import React from 'react';
 import Picture from './Picture';
 import NotFound from './NotFound';
-// import PropTypes from 'prop-types';
-// import axios from 'axios';
-
-/*
-<li><img src="https://farm5.staticflickr.com/4342/36338751244_316b6ee54b.jpg" alt="" /></li>
-*/
 
 const PictureList = props => {
 
@@ -18,10 +12,8 @@ const PictureList = props => {
       <Picture key={photo.id}
                url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
                title={photo.title} />
-    );
-  } else photos = <NotFound />
-
-  console.log(data);
+           );}
+  // } else photos = <NotFound />
 
   return (
     <div className="photo-container">
