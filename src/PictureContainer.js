@@ -14,18 +14,11 @@ export default class PictureContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // this.performSearch(nextProps.location);
-    console.log('componentWillReceiveProps, nextProps:', nextProps);
-    // (this.props.searchTerm)
-    //   ? this.performSearch(this.props.searchTerm)
-    //   : this.performSearch(props.match.props.searchTerm)
-    // this.performSearch(this.props.location.pathname.split('/')[2]);
-    this.performSearch(this.nextProps.match.params.searchTerm);
+    this.performSearch(nextProps.match.params.searchTerm);
   }
 
   componentDidMount() {
     this.performSearch(this.props.match.params.searchTerm);
-    // this.setState({ searchTerm : this.props.match.params.searchTerm});
   }
 
   performSearch = (searchTerm = 'batman') => {
@@ -41,13 +34,13 @@ export default class PictureContainer extends Component {
         console.log('Error fetching and parsing data', error);
       });
       console.log('searchTerm after performSearch method:', this.props.searchTerm)
-      // console.log('location based term', this.props.location.pathname.split('/')[2])
   }
 
   render(){
 
     let searchTerm = (this.props.match.params.searchTerm);
     let formattedSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1).toLowerCase();
+
 
     return (
       <div className="photo-container">

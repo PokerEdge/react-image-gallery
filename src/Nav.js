@@ -5,10 +5,10 @@ const Nav = () => {
   return (
     <nav className="main-nav">
       <ul>
-        <li><NavLink to='/batman'>Batman</NavLink></li>
-        <li><NavLink to='/coffee'>Coffee</NavLink></li>
-        <li><NavLink to='/gym'>Gym</NavLink></li>
-        <li><NavLink to='/search'>Search</NavLink></li>
+        <li><NavLink to='/search/batman'>Batman</NavLink></li>
+        <li><NavLink to='/search/coffee'>Coffee</NavLink></li>
+        <li><NavLink to='/search/gym'>Gym</NavLink></li>
+        <li><NavLink exact to='/search'>Search</NavLink></li>
       </ul>
     </nav>
   );
