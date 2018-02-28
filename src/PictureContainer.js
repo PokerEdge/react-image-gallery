@@ -38,9 +38,10 @@ export default class PictureContainer extends Component {
 
   render(){
 
-    let searchTerm = (this.props.match.params.searchTerm);
-    let formattedSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1).toLowerCase();
-
+    if(searchTerm){
+      let searchTerm = (this.props.match.params.searchTerm);
+      let formattedSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1).toLowerCase();
+    }
 
     return (
       <div className="photo-container">

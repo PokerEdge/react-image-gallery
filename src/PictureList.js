@@ -16,10 +16,7 @@ const PictureList = props => {
   }
   else {
     photos = <NotFound />
-    // console.log('NotFound')
   }
-
-  console.log(data, "NotFound Route called in PictureList");
 
   return (
     <div className="photo-container">
