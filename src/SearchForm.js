@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import PictureContainer from './PictureContainer';
-// import PictureList from './PictureList';
 
 export default class SearchForm extends Component {
   state = {

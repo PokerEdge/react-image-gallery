@@ -13,9 +13,13 @@ const PictureList = props => {
                url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
                title={photo.title} />
     );
-  } else photos = <NotFound />
+  }
+  else {
+    photos = <NotFound />
+    // console.log('NotFound')
+  }
 
-  console.log(data);
+  console.log(data, "NotFound Route called in PictureList");
 
   return (
     <div className="photo-container">

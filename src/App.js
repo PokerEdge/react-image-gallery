@@ -24,16 +24,13 @@ const App = props => {
       <div className="container">
         <Route path="/search" component={SearchForm} />
         <Nav />
-        { /* <Route path="/search" component={SearchForm} /> */ }
         <Switch>
-          { /* <Route exact path="/" component={PictureContainer} /> */ }
           <Route exact path='/' render={ ()=> <Redirect to={"/search"} /> } />
           <Route path="/search/:searchTerm" component={PictureContainer} />
-          { /* <Route path="/search/:searchTerm" component={SearchResults} /> */ }
           <Route path="/batman" component={Batman} />
           <Route path="/coffee" component={Coffee} />
           <Route path="/gym" component={Gym} />
-          <Route component={NotFound} />
+          { /* <Route component={NotFound} /> */ }
         </Switch>
       </div>
     </BrowserRouter>
