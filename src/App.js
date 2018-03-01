@@ -23,6 +23,7 @@ const App = props => {
     <BrowserRouter>
       <div className="container">
         <Route path="/search" component={SearchForm} />
+        <Nav />
         <Switch>
           <Route exact path='/' render={ ()=> <Redirect to={"/search"} /> } />
           <Route path="/search" component={PictureContainer} />
@@ -32,7 +33,6 @@ const App = props => {
           <Route path="/gym" component={Gym} />
           <Route component={NotFound} />
         </Switch>
-        <Nav />
       </div>
     </BrowserRouter>
   );

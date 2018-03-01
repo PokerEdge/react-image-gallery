@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PictureList from './PictureList';
+// import SearchForm from './SearchForm';
 import axios from 'axios';
 import config from './config';
 
@@ -21,7 +22,7 @@ export default class PictureContainer extends Component {
     this.performSearch(this.props.match.params.searchTerm);
   }
 
-  performSearch = (searchTerm = 'batman') => {
+  performSearch = (searchTerm = 'pickle rick') => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${searchTerm}&media=photos&per_page=12&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
@@ -38,10 +39,18 @@ export default class PictureContainer extends Component {
 
   render(){
 
-    if(searchTerm){
-      let searchTerm = (this.props.match.params.searchTerm);
-      let formattedSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1).toLowerCase();
-    }
+    // if(searchTerm){
+    //   let searchTerm = (this.props.match.params.searchTerm);
+    //   let formattedSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1).toLowerCase();
+    // }
+
+    // if(!this.props.match.params){
+    //   this.props.match.params = {};
+      this.props.match.params.searchTerm = 'batman';
+      this.props.match.params.title = this.props.match.params.searchTerm.charAt(0).toUpperCase() + this.props.match.params.searchTerm.slice(1).toLowerCase();
+    // }
+
+    console.log('match params:', this.props.match.params)
 
     return (
       <div className="photo-container">
@@ -55,8 +64,9 @@ export default class PictureContainer extends Component {
                   </path>
                 </svg>
               </p>
-            : <PictureList data={this.state.images} searchTerm={formattedSearchTerm} />
+            : <PictureList data={this.state.images} searchTerm={this.props.match.params.searchTerm} />
           }
+          { /* : <PictureList data={this.state.images} searchTerm={formattedSearchTerm} /> */ }
       </div>
     );
   }
