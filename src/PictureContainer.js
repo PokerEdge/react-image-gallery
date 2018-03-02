@@ -34,21 +34,10 @@ export default class PictureContainer extends Component {
       .catch(error => {
         console.log('Error fetching and parsing data', error);
       });
-      console.log('searchTerm after performSearch method:', this.props.searchTerm)
+      // console.log('searchTerm after performSearch method:', this.props.match.params.searchTerm)
   }
 
   render(){
-
-    // if(searchTerm){
-    //   let searchTerm = (this.props.match.params.searchTerm);
-    //   let formattedSearchTerm = searchTerm.charAt(0).toUpperCase() + searchTerm.slice(1).toLowerCase();
-    // }
-
-    // if(!this.props.match.params){
-    //   this.props.match.params = {};
-      this.props.match.params.searchTerm = 'batman';
-      this.props.match.params.title = this.props.match.params.searchTerm.charAt(0).toUpperCase() + this.props.match.params.searchTerm.slice(1).toLowerCase();
-    // }
 
     console.log('match params:', this.props.match.params)
 
@@ -66,7 +55,6 @@ export default class PictureContainer extends Component {
               </p>
             : <PictureList data={this.state.images} searchTerm={this.props.match.params.searchTerm} />
           }
-          { /* : <PictureList data={this.state.images} searchTerm={formattedSearchTerm} /> */ }
       </div>
     );
   }

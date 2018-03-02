@@ -14,9 +14,9 @@ import NotFound from './NotFound';
 
 /* Image holding components (to genearlize in the Container component) */
 import PictureContainer from './PictureContainer';
-import Batman from './components/Batman';
-import Coffee from './components/Coffee';
-import Gym from './components/Gym';
+// import Batman from './components/Batman';
+// import Coffee from './components/Coffee';
+// import Gym from './components/Gym';
 
 const App = props => {
   return (
@@ -26,11 +26,11 @@ const App = props => {
         <Nav />
         <Switch>
           <Route exact path='/' render={ ()=> <Redirect to={"/search"} /> } />
-          <Route path="/search" component={PictureContainer} />
+          <Route exact path="/search" component={undefined} />
           <Route path="/search/:searchTerm" component={PictureContainer} />
-          <Route path="/batman" component={Batman} />
-          <Route path="/coffee" component={Coffee} />
-          <Route path="/gym" component={Gym} />
+          <Route path="/batman" render={ ()=> <Redirect to={"/batman"} /> } />
+          <Route path="/coffee" render={ ()=> <Redirect to={"/coffee"} /> } />
+          <Route path="/gym" render={ ()=> <Redirect to={"/gym"} /> } />
           <Route component={NotFound} />
         </Switch>
       </div>
