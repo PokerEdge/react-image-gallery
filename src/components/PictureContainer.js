@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import PictureList from './PictureList';
-// import SearchForm from './SearchForm';
 import axios from 'axios';
-import config from './config';
+import config from '../config';
+
+/* App Components */
+import PictureList from './PictureList';
 
 export default class PictureContainer extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class PictureContainer extends Component {
     this.performSearch(this.props.match.params.searchTerm);
   }
 
-  performSearch = (searchTerm = 'pickle rick') => {
+  performSearch = (searchTerm) => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${config}&tags=${searchTerm}&media=photos&per_page=12&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
@@ -33,14 +34,11 @@ export default class PictureContainer extends Component {
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error);
-      });
-      // console.log('searchTerm after performSearch method:', this.props.match.params.searchTerm)
+      }
+    );
   }
 
   render(){
-
-    console.log('match params:', this.props.match.params)
-
     return (
       <div className="photo-container">
           {

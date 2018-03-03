@@ -79,6 +79,10 @@ input {
   width: 100%;
 }
 
+li.not-found {
+  list-style: none;
+}
+
 @media only screen and (max-width: 767px)  {
   body {
     padding-top: 2em;

@@ -1,4 +1,6 @@
 import React from 'react';
+
+/* App Components */
 import Picture from './Picture';
 import NotFound from './NotFound';
 
@@ -19,10 +21,14 @@ const PictureList = props => {
   }
 
   return (
-    <div className="photo-container">
-      <h2>{props.searchTerm} Images</h2>
+    <div>
+      {
+        (photos.length)
+        ? <h2>{props.searchTerm} Images</h2>
+        : null
+      }
       <ul>
-        { photos }
+        {photos}
       </ul>
     </div>
   );

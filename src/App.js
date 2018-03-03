@@ -8,15 +8,10 @@ import {
 import './css/index.css';
 
 /* App Components */
-import SearchForm from './SearchForm';
-import Nav from './Nav';
-import NotFound from './NotFound';
-
-/* Image holding components (to genearlize in the Container component) */
-import PictureContainer from './PictureContainer';
-// import Batman from './components/Batman';
-// import Coffee from './components/Coffee';
-// import Gym from './components/Gym';
+import SearchForm from './components/SearchForm';
+import Nav from './components/Nav';
+import PictureContainer from './components/PictureContainer';
+import NoSearchResults from './components/NoSearchResults';
 
 const App = props => {
   return (
@@ -31,7 +26,7 @@ const App = props => {
           <Route path="/batman" render={ ()=> <Redirect to={"/batman"} /> } />
           <Route path="/coffee" render={ ()=> <Redirect to={"/coffee"} /> } />
           <Route path="/gym" render={ ()=> <Redirect to={"/gym"} /> } />
-          <Route component={NotFound} />
+          <Route component={NoSearchResults} />
         </Switch>
       </div>
     </BrowserRouter>
