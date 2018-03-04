@@ -5,13 +5,13 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-import './css/index.css';
+import '../css/index.css';
 
 /* App Components */
-import SearchForm from './components/SearchForm';
-import Nav from './components/Nav';
-import PictureContainer from './components/PictureContainer';
-import NoSearchResults from './components/NoSearchResults';
+import SearchForm from './SearchForm';
+import Nav from './Nav';
+import PictureContainer from './PictureContainer';
+import NoSearchResults from './NoSearchResults';
 
 const App = props => {
   return (
