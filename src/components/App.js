@@ -17,10 +17,10 @@ const App = props => {
   return (
     <BrowserRouter>
       <div className="container">
-        <Route path="/search" component={SearchForm} />
+        <Route exact path="/search" component={SearchForm} />
         <Nav />
         <Switch>
-          <Route exact path='/' render={ ()=> <Redirect to={"/search"} /> } />
+          <Route exact path="/" render={ ()=> <Redirect to={"/search"} /> } />
           <Route exact path="/search" component={undefined} />
           <Route path="/search/:searchTerm" component={PictureContainer} />
           <Route path="/batman" render={ ()=> <Redirect to={"/batman"} /> } />

@@ -16,6 +16,7 @@ export default class PictureContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState({ isLoading: true });
     this.performSearch(nextProps.match.params.searchTerm);
   }
 
